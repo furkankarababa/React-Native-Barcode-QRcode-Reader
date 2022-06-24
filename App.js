@@ -17,6 +17,7 @@ export default function App() {
   const [cameraOpen, setCameraOpen] = useState(false);
   const [errorModal, setErrorModal] = useState(false);
   const [url, setUrl] = useState('');
+  const [isResult, setIsResult] = useState(false);
 
   const deviceLanguage =
     Platform.OS === 'ios'
@@ -37,6 +38,7 @@ export default function App() {
       />
     );
   }
+
   function body() {
     return (
       <View
@@ -80,6 +82,7 @@ export default function App() {
         <View
           style={{
             alignItems: 'center',
+            alignSelf: 'center',
             justifyContent: 'center',
             backgroundColor: 'rgba(0,0,0,0.5)',
             width: width,
@@ -87,22 +90,79 @@ export default function App() {
           }}>
           <View
             style={{
-              backgroundColor: 'white',
+              backgroundColor: 'gray',
               borderRadius: 10,
-              width: width,
+              width: width * 0.9,
               height: height * 0.4,
             }}>
-            <View style={{}}>
-              <TouchableOpacity onPress={() => setErrorModal(false)}>
-                <Text style={{color: 'red'}}>X</Text>
-              </TouchableOpacity>
-              <View>
-                <Text style={{color: 'red'}}>
-                  {deviceLanguage.split('-')[0] == 'tr'
-                    ? 'Adres Hatalı'
-                    : 'Wrong Url'}
-                </Text>
+            <View
+              style={{
+                flex: 2,
+                alignSelf: 'center',
+                justifyContent: 'flex-start',
+              }}>
+              <View
+                style={{
+                  alignSelf: 'center',
+                  justifyContent: 'center',
+                  flexDirection: 'row',
+                }}>
+                <View
+                  style={{
+                    flex: 9,
+                    padding: 10,
+                    alignSelf: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <Text
+                    style={{
+                      color: 'black',
+                      fontWeight: 'bold',
+                      fontSize: 20,
+                      flex: 4,
+                    }}>
+                    {deviceLanguage.split('-')[0] == 'tr'
+                      ? 'Barkod/QR No'
+                      : 'Barcode/QR No'}
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  onPress={() => setErrorModal(false)}
+                  style={{
+                    flex: 1,
+                    alignSelf: 'flex-end',
+                    padding: 10,
+                    justifyContent: 'center',
+                  }}>
+                  <Text
+                    style={{color: 'black', fontSize: 20, fontWeight: 'bold'}}>
+                    X
+                  </Text>
+                </TouchableOpacity>
               </View>
+            </View>
+            <View
+              style={{
+                flex: 8,
+                alignSelf: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'gray',
+                borderRadius: 10,
+                width: width * 0.75,
+                padding: 10,
+                marginBottom: 40,
+                flexDirection: 'row',
+              }}>
+              <Text
+                style={{
+                  color: 'white',
+                  alignSelf: 'center',
+                  justifyContent: 'center',
+                  fontSize: 30,
+                  fontWeight: 'bold',
+                }}>
+                {url}
+              </Text>
             </View>
           </View>
         </View>
