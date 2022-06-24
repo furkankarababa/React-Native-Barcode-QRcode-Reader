@@ -8,8 +8,8 @@ import {
   Modal,
   Platform,
 } from 'react-native';
+
 import Camera from './camera/camera';
-import {MaterialCommunityIcons} from './styles/icons';
 
 export default function App() {
   const width = Dimensions.get('window').width;
@@ -57,13 +57,18 @@ export default function App() {
             borderRadius: 100,
             width: width * 0.44,
             height: height * 0.2,
+            backgroundColor: 'white',
           }}
           onPress={() => setCameraOpen(true)}>
-          <MaterialCommunityIcons
-            name="qrcode-scan"
-            color={'white'}
-            size={50}
-          />
+          <Text
+            style={{
+              fontSize: 30,
+              color: 'black',
+              alignSelf: 'center',
+              justifyContent: 'center',
+            }}>
+            {deviceLanguage.split('-')[0] == 'tr' ? 'Tara' : 'Scan'}
+          </Text>
         </TouchableOpacity>
       </View>
     );
