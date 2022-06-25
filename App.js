@@ -56,7 +56,7 @@ export default function App() {
             padding: responsive.number(20),
             borderRadius: 100,
             width: responsive.width * 0.44,
-            height: responsive.height * 0.2,
+            height: responsive.height * 0.4,
           }}
           onPress={() => setCameraOpen(true)}>
           <View style={{alignSelf: 'center', justifyContent: 'center'}}>
