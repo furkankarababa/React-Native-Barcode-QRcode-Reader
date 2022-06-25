@@ -10,11 +10,10 @@ import {
 } from 'react-native';
 
 import Camera from './camera/camera';
-import {MaterialCommunityIcons} from './styles/icons';
+import {MaterialCommunityIcons} from './components/icons';
+import {colors, responsive} from './components/style';
 
 export default function App() {
-  const width = Dimensions.get('window').width;
-  const height = Dimensions.get('window').height;
   const [cameraOpen, setCameraOpen] = useState(false);
   const [errorModal, setErrorModal] = useState(false);
   const [url, setUrl] = useState('');
@@ -45,32 +44,28 @@ export default function App() {
       <View
         style={{
           flex: 1,
-          width: width,
+          width: responsive.width,
           alignSelf: 'center',
           justifyContent: 'center',
-          backgroundColor: 'red',
+          backgroundColor: colors.red,
         }}>
         <TouchableOpacity
           style={{
             alignSelf: 'center',
             justifyContent: 'center',
-            padding: 20,
+            padding: responsive.number(20),
             borderRadius: 100,
-            width: width * 0.44,
-            height: height * 0.2,
-            backgroundColor: 'white',
+            width: responsive.width * 0.44,
+            height: responsive.height * 0.2,
           }}
           onPress={() => setCameraOpen(true)}>
-          <Text
-            style={{
-              fontSize: 30,
-              color: 'black',
-              alignSelf: 'center',
-              justifyContent: 'center',
-            }}>
-            {deviceLanguage.split('-')[0] == 'tr' ? 'Tara' : 'Scan'}
-          </Text>
-          <MaterialCommunityIcons name={'power'} color={'black'} size={35} />
+          <View style={{alignSelf: 'center', justifyContent: 'center'}}>
+            <MaterialCommunityIcons
+              name={'barcode-scan'}
+              color={colors.white}
+              size={responsive.number(100)}
+            />
+          </View>
         </TouchableOpacity>
       </View>
     );
@@ -87,15 +82,15 @@ export default function App() {
             alignSelf: 'center',
             justifyContent: 'center',
             backgroundColor: 'rgba(0,0,0,0.5)',
-            width: width,
-            height: height,
+            width: responsive.width,
+            height: responsive.height,
           }}>
           <View
             style={{
               backgroundColor: 'gray',
-              borderRadius: 10,
-              width: width * 0.9,
-              height: height * 0.4,
+              borderRadius: responsive.number(10),
+              width: responsive.width * 0.9,
+              height: responsive.height * 0.4,
             }}>
             <View
               style={{
@@ -112,7 +107,7 @@ export default function App() {
                 <View
                   style={{
                     flex: 9,
-                    padding: 10,
+                    padding: responsive.number(10),
                     alignSelf: 'center',
                     justifyContent: 'center',
                   }}>
@@ -120,7 +115,7 @@ export default function App() {
                     style={{
                       color: 'black',
                       fontWeight: 'bold',
-                      fontSize: 20,
+                      fontSize: responsive.number(20),
                       flex: 4,
                     }}>
                     {deviceLanguage.split('-')[0] == 'tr'
@@ -133,11 +128,15 @@ export default function App() {
                   style={{
                     flex: 1,
                     alignSelf: 'flex-end',
-                    padding: 10,
+                    padding: responsive.number(10),
                     justifyContent: 'center',
                   }}>
                   <Text
-                    style={{color: 'black', fontSize: 20, fontWeight: 'bold'}}>
+                    style={{
+                      color: colors.black,
+                      fontSize: responsive.number(20),
+                      fontWeight: 'bold',
+                    }}>
                     X
                   </Text>
                 </TouchableOpacity>
@@ -149,18 +148,18 @@ export default function App() {
                 alignSelf: 'center',
                 justifyContent: 'center',
                 backgroundColor: 'gray',
-                borderRadius: 10,
-                width: width * 0.75,
-                padding: 10,
-                marginBottom: 40,
+                borderRadius: responsive.number(10),
+                width: responsive.width * 0.75,
+                padding: responsive.number(10),
+                marginBottom: responsive.number(40),
                 flexDirection: 'row',
               }}>
               <Text
                 style={{
-                  color: 'white',
+                  color: colors.white,
                   alignSelf: 'center',
                   justifyContent: 'center',
-                  fontSize: 30,
+                  fontSize: responsive.number(30),
                   fontWeight: 'bold',
                 }}>
                 {url}

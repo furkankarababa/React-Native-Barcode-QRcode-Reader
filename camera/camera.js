@@ -13,6 +13,7 @@ import {
   Dimensions,
 } from 'react-native';
 import {RNCamera} from 'react-native-camera';
+import {colors, responsive} from '../components/style';
 
 export default function Camera({
   setCameraOpen,
@@ -57,7 +58,7 @@ export default function Camera({
         captureAudio={false}
         style={{
           flex: 1,
-          width: width,
+          width: responsive.width,
           alignItems: 'center',
           justifyContent: 'center',
         }}>
@@ -65,22 +66,25 @@ export default function Camera({
           onPress={() => setCameraOpen(false)}
           style={{
             position: 'absolute',
-            top: height * 0.07,
-            right: width * 0.08,
+            top: responsive.height * 0.07,
+            right: responsive.width * 0.08,
             justifyContent: 'flex-start',
             alignSelf: 'flex-start',
-            width: width * 0.1,
+            width: responsive.width * 0.1,
           }}>
-          <Text style={{color: 'white', fontSize: 30}}> X </Text>
+          <Text style={{color: colors.white, fontSize: responsive.number(30)}}>
+            {' '}
+            X{' '}
+          </Text>
         </TouchableOpacity>
         <View
           style={{
-            width: width * 0.9,
-            height: height * 0.4,
+            width: responsive.width * 0.9,
+            height: responsive.height * 0.4,
             alignSelf: 'center',
             justifyContent: 'center',
             borderWidth: 2,
-            borderColor: 'red',
+            borderColor: colors.red,
           }}
         />
       </RNCamera>
