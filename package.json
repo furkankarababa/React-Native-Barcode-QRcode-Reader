@@ -10,6 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@mdi/font": "^6.7.96",
+    "@types/react-native-vector-icons": "^6.4.10",
     "react": "17.0.2",
     "react-native": "0.68.1",
     "react-native-camera": "^4.2.1",

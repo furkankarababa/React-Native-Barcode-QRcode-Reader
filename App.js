@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import Camera from './camera/camera';
+import {MaterialCommunityIcons} from './styles/icons';
 
 export default function App() {
   const width = Dimensions.get('window').width;
@@ -69,6 +70,7 @@ export default function App() {
             }}>
             {deviceLanguage.split('-')[0] == 'tr' ? 'Tara' : 'Scan'}
           </Text>
+          <MaterialCommunityIcons name={'power'} color={'black'} size={35} />
         </TouchableOpacity>
       </View>
     );
